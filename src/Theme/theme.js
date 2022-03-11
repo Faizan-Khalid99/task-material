@@ -1,5 +1,6 @@
 import { createTheme, Grid } from "@mui/material";
 import "../Fonts/Oxygen-Regular.ttf";
+import "../Fonts/Oxygen-Bold.ttf";
 const colors = {
   aliceBlue: "#ECF0F3",
   hawkersBlue: "#C6D7EB",
@@ -15,29 +16,41 @@ const colors = {
 };
 
 const fontFamily = {
-  Oxygen: "Oxygen-Regular",
+  Oxygen: "Oxygen-Regular sans-serif",
+  OxygenBold: "Oxygen-Bold sans-serif",
 };
 
 export const globalTheme = createTheme({
+  container: {
+    maxWidth: "1366px",
+  },
   shadows: "none",
   palette: {
     primary: {
       main: colors.white,
     },
     secondary: {
-      main: colors.puertoRico,
+      main: colors.shamRock,
     },
     background: {
       main: colors.white,
     },
+
   },
   typography: {
-    fontFamily: fontFamily.Oxygen,
+    fontFamily: fontFamily,
+    h1: {
+      fontSize: "3rem",
+      fontWeight: "bolder",
+      color: colors.swamp,
+      fontFamily: fontFamily.OxygenBold,
+    },
     h4: {
       fontSize: "15px",
       color: colors.swamp,
       marginRight: "15px",
       margin: "auto",
+      fontWeight: " 700 bolder",
     },
     h5: {
       fontSize: "1rem",
@@ -48,6 +61,16 @@ export const globalTheme = createTheme({
       fontSize: "15px",
       color: colors.swamp,
     },
+    p: {
+      fontSize: "1rem",
+      color: colors.swamp,
+    },
+    body1: {
+      fontSize: "1rem",
+      color: colors.swamp,
+    }
+
+
   },
   // Name of the component
   components: {
@@ -60,8 +83,8 @@ export const globalTheme = createTheme({
           background: colors.swamp,
           color: colors.white,
           borderRadius: "78px",
+          fontWeight: "bold",
           textTransform: "none",
-          fontFamily: fontFamily.Oxygen,
           "&:hover": {
             background: colors.swamp,
             color: colors.white,
@@ -69,12 +92,12 @@ export const globalTheme = createTheme({
         },
         outlined: {
           color: colors.swamp,
-          border: `1px solid ${colors.swamp}`,
+          border: `1.5px solid ${colors.swamp}`,
           borderRadius: "78px",
           textTransform: "none",
-          fontFamily: fontFamily.Oxygen,
+          fontWeight: "bold",
           "&:hover": {
-            border: `1px solid ${colors.swamp}`,
+            border: `2px solid ${colors.swamp}`,
             borderRadius: "78px",
             color: colors.swamp,
           },
@@ -82,24 +105,29 @@ export const globalTheme = createTheme({
         text: {
           color: colors.swamp,
           fontFamily: fontFamily.Oxygen,
-        }
+          textTransform: "none",
+          fontWeight: "bold",
+        },
       },
     },
     MuiAppBar: {
       styleOverrides: {
         root: {
-          borderBottom: `0.2px solid ${colors.darkSlate}`,
+          borderBottom: ` 0.1px solid ${colors.Solitude}`,
+          borderBottomWidth: "0.1px",
           marginY: "5px",
         },
       },
     },
     MuiDrawer: {
       styleOverrides: {
+        marginRight: "auto",
+        marginLeft: "auto",
         paper: {
           background: colors.white,
-          width: "300px"
+          width: "300px",
         },
       },
-    }
+    },
   },
 });
