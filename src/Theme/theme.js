@@ -4,7 +4,7 @@ import "../Fonts/Oxygen-Bold.ttf";
 const colors = {
   aliceBlue: "#ECF0F3",
   hawkersBlue: "#C6D7EB",
-  rockBlue: "##8CA2B7",
+  rockBlue: "#8CA2B7",
   slateGrey: "#6B8299",
   Solitude: "#E3E6EC",
   puertoRico: "#3EB8AA",
@@ -16,8 +16,8 @@ const colors = {
 };
 
 const fontFamily = {
-  Oxygen: "Oxygen-Regular sans-serif",
-  OxygenBold: "Oxygen-Bold sans-serif",
+  Oxygen: "Oxygen sans-serif",
+  OxygenBold: "Oxygen sans-serif",
 };
 
 export const globalTheme = createTheme({
@@ -35,15 +35,25 @@ export const globalTheme = createTheme({
     background: {
       main: colors.white,
     },
-
   },
   typography: {
-    fontFamily: fontFamily,
     h1: {
       fontSize: "3rem",
-      fontWeight: "bolder",
+      fontWeight: "bold",
       color: colors.swamp,
       fontFamily: fontFamily.OxygenBold,
+    },
+    h2: {
+      fontSize: "2rem",
+      fontWeight: "bold",
+      color: colors.swamp,
+      lineHeight: "35.93px",
+    },
+    h3: {
+      fontSize: "1.5rem",
+      fontWeight: "bold",
+      color: colors.swamp,
+      lineHeight: "26.94px",
     },
     h4: {
       fontSize: "15px",
@@ -62,15 +72,15 @@ export const globalTheme = createTheme({
       color: colors.swamp,
     },
     p: {
-      fontSize: "1rem",
+      fontSize: "16px",
       color: colors.swamp,
+      lineHeight: "24px",
+      opacity: "0.8",
     },
     body1: {
       fontSize: "1rem",
       color: colors.swamp,
-    }
-
-
+    },
   },
   // Name of the component
   components: {

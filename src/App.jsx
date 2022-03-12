@@ -1,7 +1,9 @@
 import React from "react";
 import HeaderBar from "./components/HeaderBar";
 import Hero from "./components/HeroSection";
-import { Container, Box, ThemeProvider } from "@mui/material";
+import PortfolioSection from "./components/PortfolioSection";
+import TrackRecord from "./components/TrackRecord";
+import { Container, ThemeProvider } from "@mui/material";
 import { globalTheme } from "./Theme/theme";
 const App = () => {
   return (
@@ -10,6 +12,8 @@ const App = () => {
         <HeaderBar />
         <Container>
           <Hero />
+          <PortfolioSection />
+          <TrackRecord />
         </Container>
       </ThemeProvider>
     </React.Fragment>

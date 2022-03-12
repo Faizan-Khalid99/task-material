@@ -4,27 +4,47 @@ import { makeStyles } from "@mui/styles";
 import { ReactComponent as Hero } from "../images/hero.svg";
 
 const HeroComponentStyles = makeStyles({
+  gridStyle: {
+    borderLeft: "0.1px solid #E3E6EC",
+    borderRight: "0.1px solid #E3E6EC",
+    borderBottom: "0.1px solid #E3E6EC",
+    borderLeftWidth: "0.1px",
+    borderRightWidth: "0.1px",
+    borderBottomWidth: "0.1px",
+  },
   intro: {
     marginTop: "50px",
   },
   introText: {
-    paddingTop: "100px",
+    paddingTop: "130px",
   },
   para: {
     fontWeight: "bold",
   },
   subText: {
-      marginTop: "20px",
-  }
+    marginTop: "20px",
+  },
+  getStarted: {
+    paddingTop: "40px",
+  },
+  getStartedButton: {
+    width: "179px",
+    borderRadius: "78px",
+    height: "48px",
+  },
+  HeroSection: {
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
 });
 
 const HeroSection = () => {
   const classes = HeroComponentStyles();
   return (
-    <Container>
+    <Container className={classes.HeroSection}>
       <Box className={classes.intro}>
-        <Grid container spacing={0}>
-          <Grid item xs={6}>
+        <Grid container spacing={1}>
+          <Grid item xs={6} className={classes.gridStyle}>
             <Typography variant="h1" className={classes.introText}>
               <Box>
                 Make money{" "}
@@ -47,11 +67,17 @@ const HeroSection = () => {
                 </Typography>
               </Box>
             </Typography>
-            <Button variant="contained">
+            <Box className={classes.getStarted}>
+              <Button
+                className={classes.getStartedButton}
+                size="large"
+                variant="contained"
+              >
                 Get Started
-            </Button>
+              </Button>
+            </Box>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className={classes.gridStyle}>
             <Hero />
           </Grid>
         </Grid>
