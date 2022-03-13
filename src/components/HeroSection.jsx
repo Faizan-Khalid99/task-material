@@ -19,7 +19,7 @@ const HeroComponentStyles = makeStyles({
     paddingTop: "130px",
   },
   para: {
-    fontWeight: "bold",
+    fontWeight: 700,
   },
   subText: {
     marginTop: "20px",
@@ -57,10 +57,10 @@ const HeroSection = () => {
             </Typography>
             <Typography variant="p">
               <Box className={classes.subText}>
-                Get exclusive access to top tier projects With the{" "}
+                Get exclusive access to top tier projects <br /> With the{" "}
                 <Typography variant="p" className={classes.para}>
                   {" "}
-                  LearnPad — where knowledge is Power!
+                  <b>LearnPad — where knowledge is Power!</b>
                 </Typography>
                 <Typography variant="body1">
                   Powered by<b> $GAINS </b>{" "}

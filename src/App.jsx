@@ -3,6 +3,7 @@ import HeaderBar from "./components/HeaderBar";
 import Hero from "./components/HeroSection";
 import PortfolioSection from "./components/PortfolioSection";
 import TrackRecord from "./components/TrackRecord";
+import Footer from "./components/Footer";
 import { Container, ThemeProvider } from "@mui/material";
 import { globalTheme } from "./Theme/theme";
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
           <PortfolioSection />
           <TrackRecord />
         </Container>
+        <Footer />
       </ThemeProvider>
     </React.Fragment>
   );
