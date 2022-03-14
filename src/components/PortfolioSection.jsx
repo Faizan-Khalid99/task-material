@@ -11,6 +11,11 @@ const useStyles = makeStyles({
   PortfolioSection: {
     marginTop: "80px",
   },
+  gridItem: {
+    "&.MuiGrid-item": {
+      paddingLeft: "40px",
+    },
+  },
   potfolioIcons: {
     marginBottom: "30px",
     boxShadow: 7,
@@ -19,8 +24,9 @@ const useStyles = makeStyles({
     marginTop: "10px",
   },
   grids: {
-    borderLeft: "0.1px solid #C6D7EB",
+    borderLeft: "0.1px solid #E3E6EC",
     borderLeftWidth: "0.1px",
+    paddingLeft: 30,
   },
 });
 const PortfolioSection = () => {
@@ -41,7 +47,7 @@ const PortfolioSection = () => {
         </Box>
       </Box>
       <Box className={classes.PortfolioSection}>
-        <Grid container spacing={4}>
+        <Grid className={classes.gridItem} container spacing={6}>
           <Grid item xs={4} className={classes.grids}>
             <Trust className={classes.potfolioIcons} />
             <Typography variant="h3" color="secondary">

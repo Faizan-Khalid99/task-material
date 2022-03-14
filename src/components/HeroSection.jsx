@@ -8,6 +8,9 @@ const HeroComponentStyles = makeStyles({
     borderLeft: "0.1px solid #E3E6EC",
     borderRight: "0.1px solid #E3E6EC",
     borderBottom: "0.1px solid #E3E6EC",
+    paddingBottom: "30px",
+    paddingLeft: "29px",
+    paddingRight: "20px",
     borderLeftWidth: "0.1px",
     borderRightWidth: "0.1px",
     borderBottomWidth: "0.1px",
@@ -32,16 +35,15 @@ const HeroComponentStyles = makeStyles({
     borderRadius: "78px",
     height: "48px",
   },
-  HeroSection: {
-    marginLeft: "auto",
-    marginRight: "auto",
+  HeroStyle: {
+    maxWidth: "100%",
   },
 });
 
 const HeroSection = () => {
   const classes = HeroComponentStyles();
   return (
-    <Container className={classes.HeroSection}>
+    <Container>
       <Box className={classes.intro}>
         <Grid container spacing={1}>
           <Grid item xs={6} className={classes.gridStyle}>
@@ -78,7 +80,7 @@ const HeroSection = () => {
             </Box>
           </Grid>
           <Grid item xs={6} className={classes.gridStyle}>
-            <Hero />
+            <Hero className={classes.HeroStyle} />
           </Grid>
         </Grid>
       </Box>

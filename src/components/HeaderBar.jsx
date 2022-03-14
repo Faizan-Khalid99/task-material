@@ -33,6 +33,15 @@ const ComponentStyle = makeStyles({
   mobile: {
     justifyContent: "flex-end",
   },
+  Button: {
+    width: "64px",
+    height: "32px",
+  },
+  tutorialStyle: {
+    fontSize: "12px",
+    fontWeight: "700",
+    lineHeight: "15px",
+  },
 });
 
 const HeaderBar = () => {
@@ -92,26 +101,32 @@ const HeaderBar = () => {
       <Box>
         <AppBar position="relative">
           <Container>
-          <Toolbar>
-            <Box sx={{ flexGrow: 1 }}>
-              <Link href="/">
-                <Box sx={{ flexGrow: 1 }}>
-                  <HeaderLogo />
-                </Box>
-              </Link>
-            </Box>
-            <Box className={classes.root}>
-              <Button variant="text">
-                <Box sx={{ flexGrow: 1 }}>
-                  <Typography variant="h4">Tutorial Videos</Typography>
-                </Box>
-              </Button>
-              <Stack spacing={2} direction="row">
-                <Button variant="outlined">Signup</Button>
-                <Button variant="contained">Login</Button>
-              </Stack>
-            </Box>
-          </Toolbar>
+            <Toolbar>
+              <Box sx={{ flexGrow: 1 }}>
+                <Link href="/">
+                  <Box sx={{ flexGrow: 1 }}>
+                    <HeaderLogo />
+                  </Box>
+                </Link>
+              </Box>
+              <Box className={classes.root}>
+                <Button variant="text">
+                  <Box sx={{ flexGrow: 1 }}>
+                    <Typography className={classes.tutorialStyle} variant="h4">
+                      Tutorial Videos
+                    </Typography>
+                  </Box>
+                </Button>
+                <Stack spacing={1} direction="row">
+                  <Button className={classes.Button} variant="outlined">
+                    Signup
+                  </Button>
+                  <Button className={classes.Button} variant="contained">
+                    Login
+                  </Button>
+                </Stack>
+              </Box>
+            </Toolbar>
           </Container>
         </AppBar>
       </Box>

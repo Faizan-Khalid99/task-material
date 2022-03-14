@@ -22,7 +22,7 @@ export const fontFamily = {
 
 export const globalTheme = createTheme({
   container: {
-    maxWidth: "1366px",
+    width: "1080px",
   },
   shadows: "none",
   palette: {
@@ -36,7 +36,7 @@ export const globalTheme = createTheme({
       main: colors.white,
     },
     loss: {
-      main: colors.puertoRico,
+      main: colors.loss,
     },
   },
   typography: {
@@ -93,6 +93,13 @@ export const globalTheme = createTheme({
   },
   components: {
     // Name of the component
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          width: "1087px",
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         // Name of the slot
@@ -146,42 +153,6 @@ export const globalTheme = createTheme({
             paddingLeft: "-5px",
           },
         },
-        {
-          props: {
-            variant: "custom2",
-          },
-          style: {
-            width: "180px",
-            paddingLeft: "-5px",
-          },
-        },
-        {
-          props: {
-            variant: "custom3",
-          },
-          style: {
-            width: "180px",
-            marginLeft: "-22px",
-          },
-        },
-        {
-          props: {
-            variant: "custom4",
-          },
-          style: {
-            width: "180px",
-            marginLeft: "-24px",
-          },
-        },
-        {
-          props: {
-            variant: "custom5",
-          },
-          style: {
-            width: "150px",
-            marginLeft: "-18px",
-          },
-        },
       ],
     },
     MuiAppBar: {
@@ -224,7 +195,20 @@ export const globalTheme = createTheme({
             paddingTop: "5px",
             paddingLeft: "3px",
             color: colors.swamp,
-            opacity: 0.8,
+          },
+        },
+        {
+          props: {
+            variant: "footerHeading",
+          },
+          style: {
+            color: colors.white,
+            fontFamily: fontFamily.Oxygen,
+            textTransform: "capitalize",
+            fontWeight: 700,
+            fontSize: "20px",
+            lineHeight: "20.2px",
+            paddingBottom: "25px",
           },
         },
         {
@@ -260,6 +244,19 @@ export const globalTheme = createTheme({
             lineHeight: "112.27%",
           },
         },
+        {
+          props: {
+            variant: "footerBranding",
+          },
+          style: {
+            fontFamily: fontFamily.Oxygen,
+            color: colors.white,
+            fontWeight: 400,
+            fontSize: "12px",
+            lineHeight: "15.15px",
+            opacity: "0.8",
+          },
+        },
       ],
     },
     MuiTextField: {
@@ -271,11 +268,23 @@ export const globalTheme = createTheme({
           fontSize: "16px",
           lineHeight: "24px",
           opacity: 0.8,
-          border: '0.1px solid #2a4e62',
-          width: '250px'
+
+          width: "234px",
+          height: "48px",
         },
-        '$.hover': {
-          border: '0.1px solid #2a4e62',
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          color: colors.white,
+          border: "0.1px solid #2a4e62",
+        },
+        "&:hover": {
+          border: "0.1px solid #2a4e62",
+        },
+        "&::after": {
+          backgroundUrl: "../images/arrow.svg",
         },
       },
     },
@@ -293,6 +302,20 @@ export const globalTheme = createTheme({
             paddingLeft: "30px",
           },
         },
+        {
+          props: {
+            variant: "dates",
+          },
+          style: {
+            "&p": {
+              color: "#415957",
+              opacity: 0.7,
+              fontSize: "20px",
+              fontWeight: 400,
+              lineHeight: "112.27%",
+            },
+          },
+        },
       ],
       styleOverrides: {
         root: {
@@ -300,5 +323,38 @@ export const globalTheme = createTheme({
         },
       },
     },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: colors.white,
+          textDecoration: "none",
+          fontFamily: fontFamily.Oxygen,
+          fontWeight: 400,
+          fontSize: "12px",
+          lineHeight: "15px",
+        },
+      },
+    },
+    MuiGrid: {
+      styleOverrides: {
+        root: {
+          "&.MuiGrid-item": {
+            paddingLeft: "10px",
+            paddingTop: "15px",
+          },
+        },
+      },
+    },
+   
+    MuiList: {
+      styleOverrides: {
+        root: {
+          "& .MuiListItem-root": {
+            paddingRight: "12px",
+            paddingLeft: "0px",
+          }
+        }
+      }
+    }
   },
 });

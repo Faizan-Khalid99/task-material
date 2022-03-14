@@ -11,11 +11,9 @@ const App = () => {
     <React.Fragment>
       <ThemeProvider theme={globalTheme}>
         <HeaderBar />
-        <Container>
           <Hero />
           <PortfolioSection />
           <TrackRecord />
-        </Container>
         <Footer />
       </ThemeProvider>
     </React.Fragment>
