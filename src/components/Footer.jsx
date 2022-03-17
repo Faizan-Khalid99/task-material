@@ -128,7 +128,6 @@ const Footer = () => {
               </Link>
             </Box>
           </Grid>
-
           <Grid mt={11} item xs={3}>
             <Box>
               <Typography variant="footerHeading">help</Typography>
@@ -158,7 +157,7 @@ const Footer = () => {
             <Box>
               <Typography variant="footerHeading">subscribe</Typography>
             </Box>
-            <Box mt={2}>
+            <Box mt={2} width="234px">
               <TextField
                 id="outlined-basic"
                 label="Enter Email"

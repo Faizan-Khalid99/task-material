@@ -38,6 +38,9 @@ export const globalTheme = createTheme({
     loss: {
       main: colors.loss,
     },
+    common: {
+      main: colors.swamp,
+    }
   },
   typography: {
     h1: {
@@ -149,8 +152,37 @@ export const globalTheme = createTheme({
             variant: "custom",
           },
           style: {
-            width: "130px",
-            paddingLeft: "-5px",
+            width: "179px",
+            height: "48px",
+            borderRadius: "78px",
+            fontFamily: fontFamily.Oxygen,
+            fontWeight: 700,
+            fontSize: "16px",
+            lineHeight: "20px",
+            textAlign: "center",
+            color: colors.white,
+            textTransform: "capitalize",
+            background: colors.shamRock,
+            "&:hover": {
+              background: colors.puertoRico,
+            }
+          },
+        },
+        {
+          props: {
+            variant: "slicktext",
+          },
+          style: {
+            fontFamily: fontFamily.Oxygen,
+            fontWeight: 700,
+            fontSize: "32px",
+            lineHeight:" 323.3%",
+            /* or 103px */
+            
+            
+            /* Shamrock */
+            
+            color: colors.shamRock,
           },
         },
       ],
@@ -257,6 +289,57 @@ export const globalTheme = createTheme({
             opacity: "0.8",
           },
         },
+        {
+          props: {
+            variant: "JoinLearnPad",
+          },
+          style: {
+            fontFamily: fontFamily.Oxygen,
+            color: colors.white,
+            fontWeight: 700,
+            fontSize: "32px",
+            lineHeight: "35.95px",
+          },
+        },
+        {
+          props: {
+            variant: "subHeader",
+          },
+          style: {
+            fontFamily: fontFamily.Oxygen,
+            color: colors.white,
+            fontWeight: 400,
+            fontSize: "16px",
+            lineHeight: "112.27%",
+            opacity: "0.9",
+          },
+        },
+        {
+          props: {
+            variant: "para",
+          },
+          style: {
+            fontFamily: fontFamily.Oxygen,
+            color: colors.swamp,
+            fontWeight: 400,
+            fontSize: "16px",
+            lineHeight: "24px",
+          },
+        },
+        {
+          props: {
+            variant: "slicktext",
+          },
+          style: {
+            fontFamily: fontFamily.Oxygen,
+            color: colors.swamp,
+            fontWeight: 700,
+            fontSize: "2rem",
+            lineHeight: "103.46px",
+            padding: 0,
+            margin: 0,
+          },
+        },
       ],
     },
     MuiTextField: {
@@ -268,7 +351,6 @@ export const globalTheme = createTheme({
           fontSize: "16px",
           lineHeight: "24px",
           opacity: 0.8,
-
           width: "234px",
           height: "48px",
         },
@@ -307,7 +389,7 @@ export const globalTheme = createTheme({
             variant: "dates",
           },
           style: {
-            "&p": {
+            "& p": {
               color: "#415957",
               opacity: 0.7,
               fontSize: "20px",
@@ -345,13 +427,25 @@ export const globalTheme = createTheme({
         },
       },
     },
-   
+
     MuiList: {
       styleOverrides: {
         root: {
           "& .MuiListItem-root": {
             paddingRight: "12px",
             paddingLeft: "0px",
+          },
+        },
+      },
+    },
+    MuiTableBody: {
+      styleOverrides: {
+        root: {
+          "& tr:nth-child(odd)": {
+            backgroundColor: "#e3ebf4"
+          },
+          "& tr:nth-child(even)": {
+            backgroundColor: "#f4f7fb"
           }
         }
       }

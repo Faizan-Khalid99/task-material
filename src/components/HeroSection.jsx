@@ -5,14 +5,10 @@ import { ReactComponent as Hero } from "../images/hero.svg";
 
 const HeroComponentStyles = makeStyles({
   gridStyle: {
-    borderLeft: "0.1px solid #E3E6EC",
-    borderRight: "0.1px solid #E3E6EC",
     borderBottom: "0.1px solid #E3E6EC",
-    paddingBottom: "30px",
+    paddingBottom: "-20px",
     paddingLeft: "29px",
     paddingRight: "20px",
-    borderLeftWidth: "0.1px",
-    borderRightWidth: "0.1px",
     borderBottomWidth: "0.1px",
   },
   intro: {
@@ -44,9 +40,9 @@ const HeroSection = () => {
   const classes = HeroComponentStyles();
   return (
     <Container>
-      <Box className={classes.intro}>
-        <Grid container spacing={1}>
-          <Grid item xs={6} className={classes.gridStyle}>
+      <Box className={classes.gridStyle}>
+        <Grid container spacing={1}  >
+          <Grid item md={6}>
             <Typography variant="h1" className={classes.introText}>
               <Box>
                 Make money{" "}
@@ -79,7 +75,7 @@ const HeroSection = () => {
               </Button>
             </Box>
           </Grid>
-          <Grid item xs={6} className={classes.gridStyle}>
+          <Grid item md={6}>
             <Hero className={classes.HeroStyle} />
           </Grid>
         </Grid>

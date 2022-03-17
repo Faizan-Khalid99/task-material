@@ -99,7 +99,7 @@ const HeaderBar = () => {
   const DesktopView = () => {
     return (
       <Box>
-        <AppBar position="relative">
+        <AppBar position="fixed">
           <Container>
             <Toolbar>
               <Box sx={{ flexGrow: 1 }}>

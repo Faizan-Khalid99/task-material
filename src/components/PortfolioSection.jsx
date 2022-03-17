@@ -10,10 +10,9 @@ const useStyles = makeStyles({
   },
   PortfolioSection: {
     marginTop: "80px",
-  },
-  gridItem: {
-    "&.MuiGrid-item": {
-      paddingLeft: "40px",
+    marginLeft: "30px",
+    "& .MuiGrid-container .MuiGrid-item": {
+      paddingLeft: "30px",
     },
   },
   potfolioIcons: {
@@ -26,7 +25,7 @@ const useStyles = makeStyles({
   grids: {
     borderLeft: "0.1px solid #E3E6EC",
     borderLeftWidth: "0.1px",
-    paddingLeft: 30,
+    padding: 0,
   },
 });
 const PortfolioSection = () => {
@@ -47,8 +46,8 @@ const PortfolioSection = () => {
         </Box>
       </Box>
       <Box className={classes.PortfolioSection}>
-        <Grid className={classes.gridItem} container spacing={6}>
-          <Grid item xs={4} className={classes.grids}>
+        <Grid className={classes.gridItem} container spacing={3}>
+          <Grid item md={4} xs={12} className={classes.grids}>
             <Trust className={classes.potfolioIcons} />
             <Typography variant="h3" color="secondary">
               Early
@@ -59,7 +58,7 @@ const PortfolioSection = () => {
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={4} className={classes.grids}>
+          <Grid item md={4} xs={12} className={classes.grids}>
             <User className={classes.potfolioIcons} />
             <Typography variant="h3" color="secondary">
               Experts
@@ -72,7 +71,7 @@ const PortfolioSection = () => {
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={4} className={classes.grids}>
+          <Grid item md={4} xs={12} className={classes.grids}>
             <CheckList className={classes.potfolioIcons} />
             <Typography variant="h3" color="secondary">
               Compliant

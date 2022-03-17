@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Container, Typography, Box, Stack } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,13 +9,13 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { colors, fontFamily } from "../Theme/theme";
 import { makeStyles } from "@mui/styles";
-import { ReactComponent as Mina } from "../images/Mina.svg";
-import { ReactComponent as Flow } from "../images/Flow.svg";
-import { ReactComponent as Celo } from "../images/celo.svg";
-import { ReactComponent as Casper } from "../images/casper.svg";
-import { ReactComponent as Near } from "../images/near.svg";
-import { ReactComponent as Solana } from "../images/solana.svg";
-import { ReactComponent as Kadena } from "../images/kadena.svg";
+import Mina from "../images/Mina.svg";
+// import Flow from "../images/Flow.svg";
+// import Celo from "../images/celo.svg";
+// import Casper from "../images/casper.svg";
+// import Near from "../images/near.svg";
+// import Solana from "../images/solana.svg";
+// import Kadena from "../images/kadena.svg";
 
 const useStyles = makeStyles({
   heading: {
@@ -48,12 +48,12 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
   },
-  StyledRow: {
-    backgroundColor: "#e3ebf4",
-  },
-  StyledRow2: {
-    backgroundColor: "#f4f7fb",
-  },
+  // StyledRow: {
+  //   backgroundColor: "#e3ebf4",
+  // },
+  // StyledRow2: {
+  //   backgroundColor: "#f4f7fb",
+  // },
   tableColumn: {
     display: "flex",
     justifyContent: "center",
@@ -86,6 +86,29 @@ const useStyles = makeStyles({
 });
 const TrackRecord = () => {
   const classes = useStyles();
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch(`https://swapi.dev/api/films/`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            `This is an HTTP error: The status is ${response.status}`
+          );
+        }
+        return response.json();
+      })
+      .then((actualData) => {
+        setData(actualData);
+        setError(null);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setData(null);
+      });
+  }, []);
+
   return (
     <Box className={classes.trackRecordSection}>
       <Box className={classes.TrackRecordHeader}>
@@ -113,9 +136,9 @@ const TrackRecord = () => {
                       paddingLeft: "36px",
                       colors: colors.swamp,
                     }}
-                    align="left"
+                    align="center"
                   >
-                    Project
+                    Title
                   </TableCell>
                   <TableCell
                     sx={{
@@ -128,7 +151,7 @@ const TrackRecord = () => {
                     }}
                     align="center"
                   >
-                    Date
+                    Release Date
                   </TableCell>
                   <TableCell
                     sx={{
@@ -140,7 +163,7 @@ const TrackRecord = () => {
                     }}
                     align="center"
                   >
-                    Current Price
+                    Director
                   </TableCell>
                   <TableCell
                     sx={{
@@ -152,136 +175,33 @@ const TrackRecord = () => {
                     }}
                     align="center"
                   >
-                    Change
+                    Episode
                   </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                <TableRow className={classes.StyledRow}>
-                  <TableCell align="center">
-                    <Stack direction="row" spacing={1}>
-                      <Mina />
-                      <Typography variant="body3">Mina</Typography>
-                    </Stack>
-                  </TableCell>
-                  <TableCell className={classes.tableDates} align="center">
-                    <Typography> April 2021</Typography>
-                  </TableCell>
-                  <TableCell className={classes.prices} align="center">
-                    <Typography variant="prices"> $1.67</Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="profit">+332%</Typography>
-                  </TableCell>
-                </TableRow>
-                <TableRow className={classes.StyledRow2}>
-                  <TableCell component="th" scope="row">
-                    <Stack direction="row" spacing={1}>
-                      <Flow />
-                      <Typography variant="body3" component="span">
-                        Flow
-                      </Typography>
-                    </Stack>
-                  </TableCell>
-                  <TableCell className={classes.tableDates} align="center">
-                    <Typography> Sept 2021</Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="prices">$1.06</Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="profit">+332%</Typography>
-                  </TableCell>
-                </TableRow>
-                <TableRow className={classes.StyledRow}>
-                  <TableCell align="center">
-                    <Stack
-                      className={classes.tableCellNames}
-                      direction="row"
-                      spacing={1}
-                    >
-                      <Celo />
-                      <Typography variant="body3">Celo</Typography>
-                    </Stack>
-                  </TableCell>
-                  <TableCell className={classes.tableDates} align="center">
-                    <Typography> May 2020</Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="prices">$6.39</Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="profit">+332%</Typography>
-                  </TableCell>
-                </TableRow>
-                <TableRow className={classes.StyledRow2}>
-                  <TableCell component="th" scope="row">
-                    <Stack direction="row" spacing={1}>
-                      <Casper />
-                      <Typography variant="body3">Casper</Typography>
-                    </Stack>
-                  </TableCell>
-                  <TableCell className={classes.tableDates} align="center">
-                    <Typography>May 2020</Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="prices">$0.21</Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="loss"> -67% </Typography>{" "}
-                  </TableCell>
-                </TableRow>
-                <TableRow className={classes.StyledRow}>
-                  <TableCell component="th" scope="row">
-                    <Stack direction="row" spacing={1}>
-                      <Near />
-                      <Typography variant="body3">Near</Typography>
-                    </Stack>
-                  </TableCell>
-                  <TableCell className={classes.tableDates} align="center">
-                    <Typography> Aug 2020</Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="prices">$1.97</Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="profit">+485%</Typography>
-                  </TableCell>
-                </TableRow>
-                <TableRow className={classes.StyledRow2}>
-                  <TableCell component="th" scope="row">
-                    <Stack direction="row" spacing={1}>
-                      <Solana />
-                      <Typography variant="body3">Solana</Typography>
-                    </Stack>
-                  </TableCell>
-                  <TableCell className={classes.tableDates} align="center">
-                    <Typography> Mar 2020</Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="prices">$21.10</Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="profit">+332%</Typography>
-                  </TableCell>
-                </TableRow>
-                <TableRow className={classes.StyledRow}>
-                  <TableCell component="th" scope="row">
-                    <Stack direction="row" spacing={1}>
-                      <Kadena />
-                      <Typography variant="body3">Kadena</Typography>
-                    </Stack>
-                  </TableCell>
-                  <TableCell className={classes.tableDates} align="center">
-                    <Typography>Nov 2019</Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="prices">$0.36</Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="loss">-46%</Typography>
-                  </TableCell>
-                </TableRow>
+                {data &&
+                  data.results.map(
+                    ({ episode_id, title, release_date, director }) => (
+                      <TableRow key={episode_id}>
+                        <TableCell align="center">
+                          <Typography variant="body3">{title}</Typography>
+                        </TableCell>
+                        <TableCell
+                          className={classes.tableDates}
+                          align="center"
+                        >
+                          <Typography> {release_date} </Typography>
+                        </TableCell>
+                        <TableCell className={classes.prices} align="center">
+                          <Typography variant="prices"> {director}</Typography>
+                        </TableCell>
+                        <TableCell align="center">
+                          <Typography variant="profit">{episode_id}</Typography>
+                        </TableCell>
+                      </TableRow>
+                    )
+                  )}
               </TableBody>
             </Table>
           </TableContainer>

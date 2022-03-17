@@ -1,0 +1,129 @@
+.slick-slider {
+  max-width: 590px !important;
+  margin-left: -70px;
+}
+.slick-list {
+  margin-left: 400px;
+  margin-top: 0px;
+  width: 625px;
+  padding-left: 40px;
+  height: 625px;
+}
+
+.slick-prev {
+  position: relative !important;
+  margin-top: 102px;
+  margin-left: 189px;
+}
+button.slick-arrow.slick-prev:before {
+  width: 50px;
+  color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: url(/src/images/UpArrow.svg) no-repeat center;
+  background-size: contain;
+}
+
+.slick-dots {
+  display: flex !important;
+  flex-direction: column;
+  row-gap: 88px;
+  position: relative;
+  margin-top: -380px;
+  margin-left: 200px;
+}
+.slick-dots li button:before {
+  font-size: 16px !important;
+}
+
+.laptop-img {
+  width: 486px;
+  height: 282.36px;
+  margin-top: 7px;
+}
+
+.slick-dots li.slick-active button:before {
+  font-size: 16px !important;
+  color: #22dbb5;
+}
+
+.slick-next {
+  left: 165px;
+  top: 430px;
+  position: absolute;
+}
+button.slick-arrow.slick-next:before {
+  width: 50px;
+  color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: url(/src/images/DownArrow.svg) no-repeat center;
+  background-size: contain;
+}
+.slick-slide {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 591px !important;
+}
+
+.slick-section::before {
+  right: 40%;
+  width: 274px;
+  height: 274px;
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #22dbb5;
+  content: "";
+}
+
+.slick-vertical .slick-slide {
+  height: max-content;
+}
+
+.slick-dots li {
+  width: 200px;
+  text-align: left;
+  font-weight: 700;
+  font-family: Oxygen;
+  font-size: 18px;
+}
+
+.slick-dots li:before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-color: #8ca2b7;
+  border-radius: 50px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: -40px;
+}
+.slick-dots li.slick-active:before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-color: #22dbb5;
+  border-radius: 50px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: -40px;
+}
+
+.list-text {
+  margin-top: -44px;
+}
+
+.slick-dots .slick-active span {
+  font-family: Oxygen;
+  color: #22dbb5;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 103.46px;
+}
