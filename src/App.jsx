@@ -8,19 +8,22 @@ import Footer from "./components/Footer";
 import SlickSliderSection from "./components/SlickSliderSection";
 import { ThemeProvider } from "@mui/material";
 import { globalTheme } from "./Theme/theme";
+import DataState from "./components/DataState";
 
 const App = () => {
   return (
     <React.Fragment>
-      <ThemeProvider theme={globalTheme}>
-        <HeaderBar />
-        <Hero />
-        <PortfolioSection />
-        <TrackRecord />
-        <SlickSliderSection />
-        <JoinSection />
-        <Footer />
-      </ThemeProvider>
+      <DataState>
+        <ThemeProvider theme={globalTheme}>
+          <HeaderBar />
+          <Hero />
+          <PortfolioSection />
+          <TrackRecord />
+          <SlickSliderSection />
+          <JoinSection />
+          <Footer />
+        </ThemeProvider>
+      </DataState>
     </React.Fragment>
   );
 };

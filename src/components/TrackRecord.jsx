@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Button, Container, Typography, Box, Stack } from "@mui/material";
+import React, { useContext, useRef } from "react";
+import { Button, Container, Typography, Box } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -9,14 +9,15 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { colors, fontFamily } from "../Theme/theme";
 import { makeStyles } from "@mui/styles";
-import Mina from "../images/Mina.svg";
+
+//import Mina from "../images/Mina.svg";
 // import Flow from "../images/Flow.svg";
 // import Celo from "../images/celo.svg";
 // import Casper from "../images/casper.svg";
 // import Near from "../images/near.svg";
 // import Solana from "../images/solana.svg";
 // import Kadena from "../images/kadena.svg";
-
+import DataContext from "./DataContext";
 const useStyles = makeStyles({
   heading: {
     fontSize: "56px",
@@ -48,12 +49,7 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
   },
-  // StyledRow: {
-  //   backgroundColor: "#e3ebf4",
-  // },
-  // StyledRow2: {
-  //   backgroundColor: "#f4f7fb",
-  // },
+
   tableColumn: {
     display: "flex",
     justifyContent: "center",
@@ -86,29 +82,7 @@ const useStyles = makeStyles({
 });
 const TrackRecord = () => {
   const classes = useStyles();
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetch(`https://swapi.dev/api/films/`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            `This is an HTTP error: The status is ${response.status}`
-          );
-        }
-        return response.json();
-      })
-      .then((actualData) => {
-        setData(actualData);
-        setError(null);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setData(null);
-      });
-  }, []);
-
+  const { data, showData } = useContext(DataContext);
   return (
     <Box className={classes.trackRecordSection}>
       <Box className={classes.TrackRecordHeader}>
@@ -180,36 +154,34 @@ const TrackRecord = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {data &&
-                  data.results.map(
-                    ({ episode_id, title, release_date, director }) => (
-                      <TableRow key={episode_id}>
-                        <TableCell align="center">
-                          <Typography variant="body3">{title}</Typography>
-                        </TableCell>
-                        <TableCell
-                          className={classes.tableDates}
-                          align="center"
-                        >
-                          <Typography> {release_date} </Typography>
-                        </TableCell>
-                        <TableCell className={classes.prices} align="center">
-                          <Typography variant="prices"> {director}</Typography>
-                        </TableCell>
-                        <TableCell align="center">
-                          <Typography variant="profit">{episode_id}</Typography>
-                        </TableCell>
-                      </TableRow>
-                    )
-                  )}
+                {data?.map(({ episode_id, title, release_date, director }) => (
+                  <TableRow key={episode_id}>
+                    <TableCell align="center">
+                      <Typography variant="body3">{title}</Typography>
+                    </TableCell>
+                    <TableCell className={classes.tableDates} align="center">
+                      <Typography> {release_date} </Typography>
+                    </TableCell>
+                    <TableCell className={classes.prices} align="center">
+                      <Typography variant="prices"> {director}</Typography>
+                    </TableCell>
+                    <TableCell align="center">
+                      <Typography variant="profit">{episode_id}</Typography>
+                    </TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
           </TableContainer>
         </Container>
       </Box>
       <Box className={classes.ButtonPos}>
-        <Button className={classes.ButtonStyle} variant="contained">
-          View All projects
+        <Button
+          onClick={showData}
+          className={classes.ButtonStyle}
+          variant="contained"
+        >
+          View All Movies
         </Button>
       </Box>
     </Box>

@@ -104,14 +104,12 @@ const HeaderBar = () => {
             <Toolbar>
               <Box sx={{ flexGrow: 1 }}>
                 <Link href="/">
-                  <Box sx={{ flexGrow: 1 }}>
-                    <HeaderLogo />
-                  </Box>
+                  <HeaderLogo />
                 </Link>
               </Box>
               <Box className={classes.root}>
                 <Button variant="text">
-                  <Box sx={{ flexGrow: 1 }}>
+                  <Box>
                     <Typography className={classes.tutorialStyle} variant="h4">
                       Tutorial Videos
                     </Typography>
