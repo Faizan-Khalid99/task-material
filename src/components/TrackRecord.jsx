@@ -86,7 +86,7 @@ const TrackRecord = () => {
     dispatch
   );
   const movies = useSelector((movies) => movies);
-  console.log(movies.movies.data);
+  // console.log(movies.movies.data);
 
   useEffect(() => {
     fetchData();
@@ -164,7 +164,7 @@ const TrackRecord = () => {
               </TableHead>
               <TableBody>
                 {movies?.movies.data.map(
-                  ({ episode_id, title, release_date, director }) => (
+                  ({ episode_id, title, release_date, director }, index) => (
                     <TableRow key={episode_id}>
                       <TableCell align="center">
                         <Typography variant="body3">{title}</Typography>

@@ -24,7 +24,7 @@ export const globalTheme = createTheme({
   container: {
     maxWidth: "1192px",
   },
-  shadows: "none",
+  // shadows: "none",
   palette: {
     primary: {
       main: colors.white,
@@ -436,10 +436,10 @@ export const globalTheme = createTheme({
     MuiTableBody: {
       styleOverrides: {
         root: {
-          "& tr:nth-child(odd)": {
+          "& tr:nth-of-type(odd)": {
             backgroundColor: "#e3ebf4",
           },
-          "& tr:nth-child(even)": {
+          "& tr:nth-of-type(even)": {
             backgroundColor: "#f4f7fb",
           },
         },
@@ -449,6 +449,22 @@ export const globalTheme = createTheme({
       styleOverrides: {
         root: {
           color: colors.loss,
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          elevation: 0,
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          "&.MuiPaper-elevation": {
+            boxShadow: "none",
+          },
         },
       },
     },

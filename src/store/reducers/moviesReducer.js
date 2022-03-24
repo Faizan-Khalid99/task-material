@@ -1,14 +1,14 @@
+import { FETCH_MOVIES, DELETE_MOVIE  } from "../Types/types";
 const initialState = { data: [] };
 
 const moviesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "Show_Movies":
-      console.log("reducer working");
+    case FETCH_MOVIES:
       return {
         ...state,
         data: action.payload,
       };
-    case "Delete_Movie":
+    case DELETE_MOVIE:
       return {
         ...state,
         data: state.data.filter((data) => data.episode_id !== action.payload),

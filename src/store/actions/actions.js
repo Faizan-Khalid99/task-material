@@ -1,17 +1,18 @@
+import { FETCH_MOVIES, DELETE_MOVIE } from "../Types/types";
+
 export const fetchData = () => async (dispatch) => {
-  console.log("fetchData trying to dispatch");
   const response = await fetch(`https://swapi.dev/api/films`);
   const res = await response.json();
-  console.log(res.results);
+
   dispatch({
-    type: "Show_Movies",
+    type: FETCH_MOVIES,
     payload: res.results,
   });
 };
 
 export const deleteMovie = (episode_id) => async (dispatch) => {
   dispatch({
-    type: "Delete_Movie",
+    type: DELETE_MOVIE,
     payload: episode_id,
   });
 };
