@@ -1,5 +1,5 @@
-import React, { useContext, useRef } from "react";
-import { Button, Container, Typography, Box } from "@mui/material";
+import React, { useContext, useRef, useEffect } from "react";
+import { Button, Container, Typography, Box, IconButton } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -9,15 +9,12 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { colors, fontFamily } from "../Theme/theme";
 import { makeStyles } from "@mui/styles";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { bindActionCreators } from "redux";
+import { useSelector, useDispatch } from "react-redux";
+import { ActionCreators } from "../store/actions";
 
-//import Mina from "../images/Mina.svg";
-// import Flow from "../images/Flow.svg";
-// import Celo from "../images/celo.svg";
-// import Casper from "../images/casper.svg";
-// import Near from "../images/near.svg";
-// import Solana from "../images/solana.svg";
-// import Kadena from "../images/kadena.svg";
-import DataContext from "./DataContext";
+// import DataContext from "../context-api/DataContext";
 const useStyles = makeStyles({
   heading: {
     fontSize: "56px",
@@ -82,7 +79,19 @@ const useStyles = makeStyles({
 });
 const TrackRecord = () => {
   const classes = useStyles();
-  const { data, showData } = useContext(DataContext);
+  // const { data, showData, deleteMovie } = useContext(DataContext);
+  const dispatch = useDispatch();
+  const { fetchData, deleteMovie } = bindActionCreators(
+    ActionCreators,
+    dispatch
+  );
+  const movies = useSelector((movies) => movies);
+  console.log(movies.movies.data);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <Box className={classes.trackRecordSection}>
       <Box className={classes.TrackRecordHeader}>
@@ -154,22 +163,29 @@ const TrackRecord = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {data?.map(({ episode_id, title, release_date, director }) => (
-                  <TableRow key={episode_id}>
-                    <TableCell align="center">
-                      <Typography variant="body3">{title}</Typography>
-                    </TableCell>
-                    <TableCell className={classes.tableDates} align="center">
-                      <Typography> {release_date} </Typography>
-                    </TableCell>
-                    <TableCell className={classes.prices} align="center">
-                      <Typography variant="prices"> {director}</Typography>
-                    </TableCell>
-                    <TableCell align="center">
-                      <Typography variant="profit">{episode_id}</Typography>
-                    </TableCell>
-                  </TableRow>
-                ))}
+                {movies?.movies.data.map(
+                  ({ episode_id, title, release_date, director }) => (
+                    <TableRow key={episode_id}>
+                      <TableCell align="center">
+                        <Typography variant="body3">{title}</Typography>
+                      </TableCell>
+                      <TableCell className={classes.tableDates} align="center">
+                        <Typography> {release_date} </Typography>
+                      </TableCell>
+                      <TableCell className={classes.prices} align="center">
+                        <Typography variant="prices"> {director}</Typography>
+                      </TableCell>
+                      <TableCell align="center">
+                        <Typography variant="profit">
+                          {episode_id}
+                          <IconButton onClick={() => deleteMovie(episode_id)}>
+                            <DeleteIcon />
+                          </IconButton>
+                        </Typography>
+                      </TableCell>
+                    </TableRow>
+                  )
+                )}
               </TableBody>
             </Table>
           </TableContainer>
@@ -177,7 +193,7 @@ const TrackRecord = () => {
       </Box>
       <Box className={classes.ButtonPos}>
         <Button
-          onClick={showData}
+          onClick={() => fetchData()}
           className={classes.ButtonStyle}
           variant="contained"
         >

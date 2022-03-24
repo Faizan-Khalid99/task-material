@@ -22,7 +22,7 @@ export const fontFamily = {
 
 export const globalTheme = createTheme({
   container: {
-    width: "1080px",
+    maxWidth: "1192px",
   },
   shadows: "none",
   palette: {
@@ -40,7 +40,7 @@ export const globalTheme = createTheme({
     },
     common: {
       main: colors.swamp,
-    }
+    },
   },
   typography: {
     h1: {
@@ -99,7 +99,7 @@ export const globalTheme = createTheme({
     MuiContainer: {
       styleOverrides: {
         root: {
-          width: "1087px",
+          width: "1193px",
         },
       },
     },
@@ -165,7 +165,7 @@ export const globalTheme = createTheme({
             background: colors.shamRock,
             "&:hover": {
               background: colors.puertoRico,
-            }
+            },
           },
         },
         {
@@ -176,12 +176,7 @@ export const globalTheme = createTheme({
             fontFamily: fontFamily.Oxygen,
             fontWeight: 700,
             fontSize: "32px",
-            lineHeight:" 323.3%",
-            /* or 103px */
-            
-            
-            /* Shamrock */
-            
+            lineHeight: " 323.3%",
             color: colors.shamRock,
           },
         },
@@ -442,13 +437,20 @@ export const globalTheme = createTheme({
       styleOverrides: {
         root: {
           "& tr:nth-child(odd)": {
-            backgroundColor: "#e3ebf4"
+            backgroundColor: "#e3ebf4",
           },
           "& tr:nth-child(even)": {
-            backgroundColor: "#f4f7fb"
-          }
-        }
-      }
-    }
+            backgroundColor: "#f4f7fb",
+          },
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          color: colors.loss,
+        },
+      },
+    },
   },
 });

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import DataContext from "./DataContext";
 import Reducer from "./reducer";
 
@@ -17,12 +17,21 @@ const DataState = (props) => {
   };
   const [state, dispatch] = useReducer(Reducer, initialState);
 
+  useEffect(async () => {
+    await getData();
+  }, []);
+
   const showData = async () => {
     await getData();
   };
 
+  const deleteMovie = async (title) => {
+    dispatch({ type: "Delete_Movie", payload: title });
+    console.log("i am being called, logic needs work");
+  };
+
   return (
-    <DataContext.Provider value={{ showData, data: state.data }}>
+    <DataContext.Provider value={{ deleteMovie, showData, data: state.data }}>
       {props.children}
     </DataContext.Provider>
   );

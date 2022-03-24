@@ -5,6 +5,11 @@ export default (state, action) => {
         ...state,
         data: action.payload,
       };
+    case "Delete_Movie":
+      return {
+        ...state,
+        data: state.data.filter((data) => data.title !== action.payload),
+      };
     default:
       return state;
   }
