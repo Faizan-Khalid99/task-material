@@ -1,6 +1,7 @@
 import { createTheme, Grid } from "@mui/material";
 import "../Fonts/Oxygen-Regular.ttf";
 import "../Fonts/Oxygen-Bold.ttf";
+
 export const colors = {
   aliceBlue: "#ECF0F3",
   hawkersBlue: "#C6D7EB",
@@ -17,7 +18,7 @@ export const colors = {
 };
 
 export const fontFamily = {
-  Oxygen: "Oxygen",
+  Oxygen: "Oxygen, sans-serif",
 };
 
 export const globalTheme = createTheme({
@@ -93,6 +94,13 @@ export const globalTheme = createTheme({
       fontFamily: fontFamily.Oxygen,
       color: colors.white,
     },
+    body2: {
+      fontFamily: fontFamily.Oxygen,
+      color: colors.swamp,
+      lineHeight: "20.2px",
+      fontSize: "16px",
+      fontWeight: 700,
+    },
   },
   components: {
     // Name of the component
@@ -119,6 +127,21 @@ export const globalTheme = createTheme({
             color: colors.white,
           },
         },
+        containedSizeLarge: {
+          // Some CSS
+          background: colors.swamp,
+          fontFamily: fontFamily.Oxygen,
+          color: colors.white,
+          borderRadius: "78px",
+          fontWeight: "bold",
+          width: "162px",
+          height: "40px",
+          textTransform: "capitalize",
+          "&:hover": {
+            background: colors.swamp,
+            color: colors.white,
+          },
+        },
         outlined: {
           color: colors.swamp,
           fontFamily: fontFamily.Oxygen,
@@ -126,6 +149,21 @@ export const globalTheme = createTheme({
           borderRadius: "78px",
           textTransform: "none",
           fontWeight: "bold",
+          "&:hover": {
+            border: `2px solid ${colors.swamp}`,
+            borderRadius: "78px",
+            color: colors.swamp,
+          },
+        },
+        outlinedSizeLarge: {
+          color: colors.swamp,
+          fontFamily: fontFamily.Oxygen,
+          border: `1.5px solid ${colors.swamp}`,
+          borderRadius: "78px",
+          fontWeight: "bold",
+          width: "162px",
+          height: "40px",
+          textTransform: "capitalize",
           "&:hover": {
             border: `2px solid ${colors.swamp}`,
             borderRadius: "78px",
@@ -198,6 +236,7 @@ export const globalTheme = createTheme({
         paper: {
           background: colors.white,
           width: "300px",
+          borderRadius: "0 15px 15px 0",
         },
       },
     },
@@ -357,12 +396,13 @@ export const globalTheme = createTheme({
           color: colors.white,
           border: "0.1px solid #2a4e62",
         },
+        "&:focus": {
+          border: "0.1px solid #2a4e62",
+        },
         "&:hover": {
           border: "0.1px solid #2a4e62",
         },
-        "&::after": {
-          backgroundUrl: "../images/arrow.svg",
-        },
+     
       },
     },
     MuiTableCell: {
@@ -409,16 +449,6 @@ export const globalTheme = createTheme({
           fontWeight: 400,
           fontSize: "12px",
           lineHeight: "15px",
-        },
-      },
-    },
-    MuiGrid: {
-      styleOverrides: {
-        root: {
-          "&.MuiGrid-item": {
-            paddingLeft: "10px",
-            paddingTop: "15px",
-          },
         },
       },
     },

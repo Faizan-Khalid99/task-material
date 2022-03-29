@@ -26,17 +26,21 @@ import { ReactComponent as Arrow } from "../images/arrow.svg";
 import InstagramIcon from "../images/instagram-icon.png";
 import TwitterIcon from "../images/twitter-icon.png";
 import TelegramIcon from "../images/telegram.png";
-const footerStyles = makeStyles({
+const footerStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: "#163D53",
     border: "0.1px solid #11302D",
     justifyContent: "space-around",
-    height: "320px",
+    height: "330px",
+    [theme.breakpoints.down("lg")]: {
+      height: "auto",
+    },
   },
   footerLogo: {
     width: "148.06px",
     height: "50px",
     paddingTop: "10px",
+    marginTop: 10,
   },
   footerHeading: {
     color: colors.white,
@@ -89,21 +93,21 @@ const footerStyles = makeStyles({
     justifyContent: "center",
     marginTop: "20px",
   },
-});
+}));
 const Footer = () => {
   const classes = footerStyles();
   return (
     <Box className={classes.footer}>
-      <Container>
-        <Grid container spacing={5} className={classes.footerGridStyle}>
-          <Grid item xs={2}>
+      <Container fixed>
+        <Grid container spacing={3} justifyContent = "center">
+          <Grid item lg={3} md={2} sm={12} xs={12}>
             <Box mt={10} className={classes.footerLogo}>
               <Link href="/">
                 <FooterLogo />
               </Link>
             </Box>
           </Grid>
-          <Grid mt={11} item xs={3}>
+          <Grid mt={11} item lg={3} md={3} sm={6} xs={12}>
             <Box>
               <Typography variant="footerHeading">company</Typography>
               <Link href="/">
@@ -128,7 +132,8 @@ const Footer = () => {
               </Link>
             </Box>
           </Grid>
-          <Grid mt={11} item xs={3}>
+
+          <Grid mt={11} item lg={3} md={3} sm={6} xs={12}>
             <Box>
               <Typography variant="footerHeading">help</Typography>
               <Link href="/">
@@ -153,7 +158,7 @@ const Footer = () => {
               </Link>
             </Box>
           </Grid>
-          <Grid item xs={3} mt={11}>
+          <Grid item lg={3} md={3} mt={11} sm={12} xs={12}>
             <Box>
               <Typography variant="footerHeading">subscribe</Typography>
             </Box>

@@ -105,7 +105,7 @@ const TrackRecord = () => {
         </Box>
       </Box>
       <Box className={classes.TrackTable} mt={5}>
-        <Container>
+        <Container fixed>
           <TableContainer component={Paper}>
             <Table aria-label="customized table">
               <TableHead>

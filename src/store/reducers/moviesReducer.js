@@ -1,4 +1,4 @@
-import { FETCH_MOVIES, DELETE_MOVIE  } from "../Types/types";
+import { FETCH_MOVIES, DELETE_MOVIE } from "../Types/types";
 const initialState = { data: [] };
 
 const moviesReducer = (state = initialState, action) => {

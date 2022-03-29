@@ -42,6 +42,9 @@ const ComponentStyle = makeStyles({
     fontWeight: "700",
     lineHeight: "15px",
   },
+  mobileMenu: {
+    marginRight: "19px",
+  },
 });
 
 const HeaderBar = () => {
@@ -70,28 +73,30 @@ const HeaderBar = () => {
     };
     return (
       <Box>
-        <Container>
-          <AppBar position="relative">
+        <AppBar position="fixed">
+          <Container fixed>
             <Toolbar>
-              <IconButton onClick={toggleDrawer(true)}>
-                <SvgIcon>
-                  <Logo />
-                </SvgIcon>
-              </IconButton>
+              <Box mr="19px">
+                <IconButton onClick={toggleDrawer(true)}>
+                  <SvgIcon>
+                    <Logo />
+                  </SvgIcon>
+                </IconButton>
+              </Box>
               <Drawer open={state} onClose={toggleDrawer(false)}>
                 <MobileMenu />
               </Drawer>
               <Box sx={{ flexGrow: 1 }}>
                 <Link href="/">
-                  <Box sx={{ flexGrow: 1 }}>
-                    <HeaderLogo />
-                  </Box>
+                  <HeaderLogo />
                 </Link>
               </Box>
+              <Box > 
               <Button variant="outlined">Signup</Button>
+              </Box>
             </Toolbar>
-          </AppBar>
-        </Container>
+          </Container>
+        </AppBar>
       </Box>
     );
   };
@@ -100,7 +105,7 @@ const HeaderBar = () => {
     return (
       <Box>
         <AppBar position="fixed">
-          <Container>
+          <Container fixed>
             <Toolbar>
               <Box sx={{ flexGrow: 1 }}>
                 <Link href="/">

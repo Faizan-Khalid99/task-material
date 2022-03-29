@@ -1,21 +1,35 @@
 import React from "react";
-import { Box, Grid, Typography, Container, Button } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Typography,
+  Container,
+  Button,
+  createTheme,
+} from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { ReactComponent as Hero } from "../images/hero.svg";
 
-const HeroComponentStyles = makeStyles({
+const HeroComponentStyles = makeStyles((theme) => ({
   gridStyle: {
     borderBottom: "0.1px solid #E3E6EC",
-    paddingBottom: "-20px",
+    paddingBottom: "20px",
     paddingLeft: "29px",
     paddingRight: "20px",
+    paddingTop: "42.69px",
     borderBottomWidth: "0.1px",
+    "& .MuiGrid-root .MuiGrid-item": {
+      [theme.breakpoints.down("md")]: {
+        // paddingLeft: "0px",
+        paddingTop: "32px",
+      },
+    },
   },
   intro: {
     marginTop: "50px",
   },
   introText: {
-    paddingTop: "130px",
+    paddingTop: "110px",
   },
   para: {
     fontWeight: 700,
@@ -33,25 +47,28 @@ const HeroComponentStyles = makeStyles({
   },
   HeroStyle: {
     maxWidth: "100%",
+    height: "auto",
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "535px",
+      height: "auto",
+    },
   },
-});
+}));
 
 const HeroSection = () => {
   const classes = HeroComponentStyles();
   return (
-    <Container>
-      <Box className={classes.gridStyle}>
-        <Grid container spacing={1}  >
-          <Grid item md={6}>
+    <Box className={classes.gridStyle}>
+      <Container fixed>
+        <Grid container spacing={1}>
+          <Grid item lg={6} md={6} xs={12}>
             <Typography variant="h1" className={classes.introText}>
-              <Box>
-                Make money{" "}
-                <Typography variant="h1" color="secondary">
-                  {" "}
-                  by understanding
-                </Typography>{" "}
-                what you invest in
-              </Box>
+              Make money <br />
+              <Typography variant="h1" color="secondary" component="span">
+                {" "}
+                by understanding <br />
+              </Typography>{" "}
+              what you invest in
             </Typography>
             <Typography variant="p">
               <Box className={classes.subText}>
@@ -75,12 +92,12 @@ const HeroSection = () => {
               </Button>
             </Box>
           </Grid>
-          <Grid item md={6}>
+          <Grid item mt = "31px" lg={6} md={6} xs={12}>
             <Hero className={classes.HeroStyle} />
           </Grid>
         </Grid>
-      </Box>
-    </Container>
+      </Container>
+    </Box>
   );
 };
 

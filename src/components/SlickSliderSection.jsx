@@ -7,13 +7,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./slider.css";
 import Laptop from "../images/Laptop.svg";
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     background: "#EEF9F7",
     height: "618px",
+    [theme.breakpoints.down("md")]: {
+      height: "481px",
+    },
+    [theme.breakpoints.down("lg")]: {
+      height: "618px",
+    },
   },
-  slider: {},
-});
+}));
 
 const SlickSliderSection = () => {
   const classes = useStyles();
@@ -26,7 +31,6 @@ const SlickSliderSection = () => {
     slidesToScroll: 1,
     vertical: true,
     draggable: true,
-    verticalSwiping: true,
     customPaging: function (i) {
       if (i === 0) {
         text.current = "Learn. ";
@@ -45,15 +49,26 @@ const SlickSliderSection = () => {
         </div>
       );
     },
+    responsive: [
+      {
+        breakpoint: 900,
+        settings: {
+          vertical: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+    ],
   };
   return (
     <Box className={classes.root}>
-      <Container>
+      <Container fixed>
         <Grid container>
           <Grid item md={12}>
             <Box className="slick-section">
               <Sliders {...settings}>
-                <Box>
+                <Box mr={1}>
                   <Typography pb="13px" variant="h1">
                     Learn & Have Fun
                   </Typography>
@@ -65,7 +80,7 @@ const SlickSliderSection = () => {
                   </Typography>
                   <img className="laptop-img" src={Laptop} alt="" />
                 </Box>
-                <Box>
+                <Box mr={1}>
                   <Typography pb="13px" variant="h1">
                     Invest & Profit
                   </Typography>
@@ -76,7 +91,7 @@ const SlickSliderSection = () => {
                   </Typography>
                   <img className="laptop-img" src={Laptop} alt="" />
                 </Box>
-                <Box>
+                <Box mr={1}>
                   <Typography pb="13px" variant="h1">
                     Live On
                   </Typography>
