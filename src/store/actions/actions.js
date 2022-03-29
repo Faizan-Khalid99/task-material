@@ -10,9 +10,9 @@ export const fetchData = () => async (dispatch) => {
   });
 };
 
-export const deleteMovie = (episode_id) => async (dispatch) => {
+export const deleteMovie = (index) => async (dispatch) => {
   dispatch({
     type: DELETE_MOVIE,
-    payload: episode_id,
+    payload: index,
   });
 };

@@ -11,7 +11,7 @@ const moviesReducer = (state = initialState, action) => {
     case DELETE_MOVIE:
       return {
         ...state,
-        data: state.data.filter((data) => data.episode_id !== action.payload),
+        data: state.data.filter((data,index) => index !== action.payload),
       };
     default:
       return state;

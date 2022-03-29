@@ -15,7 +15,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { ActionCreators } from "../store/actions";
 
 // import DataContext from "../context-api/DataContext";
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   heading: {
     fontSize: "56px",
     lineHeight: "112.27%",
@@ -25,6 +25,10 @@ const useStyles = makeStyles({
     backgroundColor: "#E8EFF7",
     backgroundSize: "contain",
     height: "790px",
+    [theme.breakpoints.down("md")]: {
+      height: "auto",
+      paddingBottom: "30px"
+    },
   },
   TrackRecordHeader: {
     display: "flex",
@@ -76,7 +80,7 @@ const useStyles = makeStyles({
     width: "220px",
     height: "48px",
   },
-});
+}));
 const TrackRecord = () => {
   const classes = useStyles();
   // const { data, showData, deleteMovie } = useContext(DataContext);
@@ -178,7 +182,7 @@ const TrackRecord = () => {
                       <TableCell align="center">
                         <Typography variant="profit">
                           {episode_id}
-                          <IconButton onClick={() => deleteMovie(episode_id)}>
+                          <IconButton onClick={() => deleteMovie(index)}>
                             <DeleteIcon />
                           </IconButton>
                         </Typography>

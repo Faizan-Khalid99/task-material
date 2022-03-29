@@ -141,6 +141,9 @@ button.slick-arrow.slick-next:before {
   .slick-list {
     margin-left: 350px;
   }
+  .slick-section {
+    height: auto;
+  }
 
   .slick-dots li {
     text-align: center;
@@ -158,7 +161,7 @@ button.slick-arrow.slick-next:before {
     margin-right: 30px;
   }
   .slick-track {
-    margin-left: -40px;
+    margin-left: -50px;
   }
   .slick-slider {
     margin-top: 20px;
