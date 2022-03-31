@@ -48,7 +48,7 @@ const PortfolioSection = () => {
   return (
     <Container fixed>
       <Grid container>
-        <Grid item lg={12} md={12} sm={12} >
+        <Grid item md={12} >
           <Box className={classes.root}>
             <Box>
               <Typography variant="h2" color="secondary">

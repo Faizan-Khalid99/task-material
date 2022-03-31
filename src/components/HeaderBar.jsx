@@ -74,7 +74,7 @@ const HeaderBar = () => {
     return (
       <Box>
         <AppBar position="fixed">
-          <Container fixed>
+          <Container fixed sx = {{overflow: "hidden"}}>
             <Toolbar>
               <Box mr="19px">
                 <IconButton onClick={toggleDrawer(true)}>

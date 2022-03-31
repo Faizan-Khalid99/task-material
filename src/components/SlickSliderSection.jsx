@@ -66,13 +66,13 @@ const SlickSliderSection = () => {
       <Container fixed>
         <Grid container>
           <Grid item md={12}>
-            <Box className="slick-section">
-              <Sliders {...settings}>
+            <Box >
+              <Sliders className="slick-section" {...settings}>
                 <Box mr={1}>
-                  <Typography pb="13px" variant="h1">
+                  <Typography pb="13px" variant="h1" component = "h2">
                     Learn & Have Fun
                   </Typography>
-                  <Typography variant="para">
+                  <Typography variant="para" component = "p">
                     Our goal is to remove the barriers to investing. By taking
                     you through baby steps, we're making it more intuitive, fun
                     and easy to understand what the hell blockchain projects are

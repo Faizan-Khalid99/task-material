@@ -21,9 +21,10 @@ export const fontFamily = {
   Oxygen: "Oxygen, sans-serif",
 };
 
+
 export const globalTheme = createTheme({
   container: {
-    maxWidth: "1192px",
+    maxWidth: "1366px",
   },
   // shadows: "none",
   palette: {
@@ -44,6 +45,7 @@ export const globalTheme = createTheme({
     },
   },
   typography: {
+   
     h1: {
       fontSize: "3rem",
       fontWeight: "bold",

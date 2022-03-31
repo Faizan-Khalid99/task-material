@@ -11,6 +11,7 @@ import { globalTheme } from "./Theme/theme";
 // import DataState from "./components/DataState";
 
 const App = () => {
+  
   return (
     <React.Fragment>
       <ThemeProvider theme={globalTheme}>
