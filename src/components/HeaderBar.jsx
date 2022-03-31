@@ -22,6 +22,7 @@ const ComponentStyle = makeStyles({
     height: "38.0004768371582px",
     width: "112.52877807617188px",
     borderRadius: "0px",
+    marginRight: "28px",
   },
   root: {
     display: "flex",
@@ -73,10 +74,10 @@ const HeaderBar = () => {
     };
     return (
       <Box>
-        <AppBar position="fixed">
-          <Container fixed sx = {{overflow: "hidden"}}>
+        <AppBar color="transparent" position="fixed">
+          <Container fixed maxWidth="lg">
             <Toolbar>
-              <Box mr="19px">
+              <Box mr={2.5}>
                 <IconButton onClick={toggleDrawer(true)}>
                   <SvgIcon>
                     <Logo />
@@ -86,13 +87,16 @@ const HeaderBar = () => {
               <Drawer open={state} onClose={toggleDrawer(false)}>
                 <MobileMenu />
               </Drawer>
-              <Box sx={{ flexGrow: 1 }}>
+              <Box
+                sx={{ flexGrow: 1, marginRight: 2.5 }}
+                className={classes.headerLogoStyle}
+              >
                 <Link href="/">
                   <HeaderLogo />
                 </Link>
               </Box>
-              <Box > 
-              <Button variant="outlined">Signup</Button>
+              <Box>
+                <Button variant="outlined">Signup</Button>
               </Box>
             </Toolbar>
           </Container>
@@ -104,10 +108,10 @@ const HeaderBar = () => {
   const DesktopView = () => {
     return (
       <Box>
-        <AppBar position="fixed">
+        <AppBar color="transparent" position="fixed">
           <Container fixed>
             <Toolbar>
-              <Box sx={{ flexGrow: 1 }}>
+              <Box sx={{ flexGrow: 1 }} className={classes.headerLogoStyle}>
                 <Link href="/">
                   <HeaderLogo />
                 </Link>

@@ -2,6 +2,7 @@ import { createTheme, Grid } from "@mui/material";
 import "../Fonts/Oxygen-Regular.ttf";
 import "../Fonts/Oxygen-Bold.ttf";
 
+const defaultTheme = createTheme();
 export const colors = {
   aliceBlue: "#ECF0F3",
   hawkersBlue: "#C6D7EB",
@@ -21,11 +22,10 @@ export const fontFamily = {
   Oxygen: "Oxygen, sans-serif",
 };
 
-
 export const globalTheme = createTheme({
-  container: {
-    maxWidth: "1366px",
-  },
+  // container: {
+  //   maxWidth: "1366px",
+  // },
   // shadows: "none",
   palette: {
     primary: {
@@ -45,7 +45,6 @@ export const globalTheme = createTheme({
     },
   },
   typography: {
-   
     h1: {
       fontSize: "3rem",
       fontWeight: "bold",
@@ -108,8 +107,10 @@ export const globalTheme = createTheme({
     // Name of the component
     MuiContainer: {
       styleOverrides: {
-        root: {
-          width: "1193px",
+        maxWidthLg: {
+          [defaultTheme.breakpoints.up("lg")]: {
+            maxWidth: "1193px",
+          },
         },
       },
     },
@@ -228,6 +229,7 @@ export const globalTheme = createTheme({
           borderBottom: ` 0.1px solid ${colors.Solitude}`,
           borderBottomWidth: "0.1px",
           marginY: "5px",
+          backgroundColor: colors.white,
         },
       },
     },
@@ -404,7 +406,6 @@ export const globalTheme = createTheme({
         "&:hover": {
           border: "0.1px solid #2a4e62",
         },
-     
       },
     },
     MuiTableCell: {
