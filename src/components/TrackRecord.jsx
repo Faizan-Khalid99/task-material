@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     height: "790px",
     [theme.breakpoints.down("md")]: {
       height: "auto",
-      paddingBottom: "30px"
+      paddingBottom: "30px",
     },
   },
   TrackRecordHeader: {
@@ -97,7 +97,11 @@ const TrackRecord = () => {
   }, []);
 
   return (
-    <Box className={classes.trackRecordSection}>
+    <Box
+      data-aos="fade-up"
+      data-aos-duration="1200"
+      className={classes.trackRecordSection}
+    >
       <Box className={classes.TrackRecordHeader}>
         <Box className={classes.heading}>
           <Typography variant="h1">

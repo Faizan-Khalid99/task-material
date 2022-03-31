@@ -73,15 +73,15 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("md")]: {
       marginLeft: "16px",
-      marginTop: "50px"
-    }
+      marginTop: "50px",
+    },
   },
 }));
 
 const JoinSection = () => {
   const classes = useStyles();
   return (
-    <Box>
+    <Box data-aos="fade-up" data-aos-duration="1200">
       <Container fixed className={classes.root}>
         <Grid container spacing={0}>
           <Grid item lg={7} md={12}>

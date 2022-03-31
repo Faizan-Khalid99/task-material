@@ -58,7 +58,11 @@ const HeroComponentStyles = makeStyles((theme) => ({
 const HeroSection = () => {
   const classes = HeroComponentStyles();
   return (
-    <Box className={classes.gridStyle}>
+    <Box
+      data-aos="fade-up"
+      data-aos-duration="1200"
+      className={classes.gridStyle}
+    >
       <Container fixed>
         <Grid container spacing={1}>
           <Grid item lg={6} md={6} xs={12}>
@@ -92,7 +96,7 @@ const HeroSection = () => {
               </Button>
             </Box>
           </Grid>
-          <Grid item mt = "31px" lg={6} md={6} xs={12}>
+          <Grid item mt="31px" lg={6} md={6} xs={12}>
             <Hero className={classes.HeroStyle} />
           </Grid>
         </Grid>

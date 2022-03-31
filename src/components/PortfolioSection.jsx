@@ -47,8 +47,8 @@ const PortfolioSection = () => {
   const classes = useStyles();
   return (
     <Container fixed>
-      <Grid container>
-        <Grid item md={12} >
+      <Grid data-aos="fade-up" data-aos-duration="1200" container>
+        <Grid item md={12}>
           <Box className={classes.root}>
             <Box>
               <Typography variant="h2" color="secondary">

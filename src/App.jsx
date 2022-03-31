@@ -8,7 +8,13 @@ import Footer from "./components/Footer";
 import SlickSliderSection from "./components/SlickSliderSection";
 import { ThemeProvider } from "@mui/material";
 import { globalTheme } from "./Theme/theme";
+import AOS from "aos";
+import "aos/dist/aos.css";
 // import DataState from "./components/DataState";
+
+AOS.init({
+  once: false,
+});
 
 const App = () => {
   
