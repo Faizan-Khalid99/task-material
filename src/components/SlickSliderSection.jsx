@@ -68,7 +68,7 @@ const SlickSliderSection = () => {
           <Grid item md={12}>
             <Box>
               <Sliders className="slick-section" {...settings}>
-                <Box mr={1}>
+                <Box>
                   <Typography pb="13px" variant="h1" component="h2">
                     Learn & Have Fun
                   </Typography>

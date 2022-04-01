@@ -107,36 +107,34 @@ const HeaderBar = () => {
 
   const DesktopView = () => {
     return (
-      <Box>
-        <AppBar color="transparent" position="fixed">
-          <Container fixed>
-            <Toolbar>
-              <Box sx={{ flexGrow: 1 }} className={classes.headerLogoStyle}>
-                <Link href="/">
-                  <HeaderLogo />
-                </Link>
-              </Box>
-              <Box className={classes.root}>
-                <Button variant="text">
-                  <Box>
-                    <Typography className={classes.tutorialStyle} variant="h4">
-                      Tutorial Videos
-                    </Typography>
-                  </Box>
+      <AppBar color="transparent" position="fixed">
+        <Container fixed>
+          <Toolbar>
+            <Box sx={{ flexGrow: 1 }} className={classes.headerLogoStyle}>
+              <Link href="/">
+                <HeaderLogo />
+              </Link>
+            </Box>
+            <Box className={classes.root}>
+              <Button variant="text">
+                <Box>
+                  <Typography className={classes.tutorialStyle} variant="h4">
+                    Tutorial Videos
+                  </Typography>
+                </Box>
+              </Button>
+              <Stack spacing={1} direction="row">
+                <Button className={classes.Button} variant="outlined">
+                  Signup
                 </Button>
-                <Stack spacing={1} direction="row">
-                  <Button className={classes.Button} variant="outlined">
-                    Signup
-                  </Button>
-                  <Button className={classes.Button} variant="contained">
-                    Login
-                  </Button>
-                </Stack>
-              </Box>
-            </Toolbar>
-          </Container>
-        </AppBar>
-      </Box>
+                <Button className={classes.Button} variant="contained">
+                  Login
+                </Button>
+              </Stack>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
     );
   };
 

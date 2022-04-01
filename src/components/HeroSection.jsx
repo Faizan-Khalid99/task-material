@@ -29,7 +29,7 @@ const HeroComponentStyles = makeStyles((theme) => ({
     marginTop: "50px",
   },
   introText: {
-    paddingTop: "110px",
+    paddingTop: "100px",
   },
   para: {
     fontWeight: 700,
@@ -65,7 +65,7 @@ const HeroSection = () => {
     >
       <Container fixed>
         <Grid container spacing={0} alignItems="center">
-          <Grid item lg={6} md={6} xs={12}>
+          <Grid item lg={6} md={6} xs={12} pl="42px">
             <Typography variant="h1" className={classes.introText}>
               Make money <br />
               <Typography variant="h1" color="secondary" component="span">

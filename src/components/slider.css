@@ -38,7 +38,7 @@ button.slick-arrow.slick-prev:before {
 }
 
 .laptop-img {
-  width: 486px;
+  width: 445px;
   height: 282.36px;
   margin-top: 7px;
 }
@@ -64,7 +64,7 @@ button.slick-arrow.slick-next:before {
 }
 .slick-slide {
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 37px;
   width: 591px !important;
 }
 
@@ -157,10 +157,11 @@ button.slick-arrow.slick-next:before {
   }
   .slick-slide {
     width: 648px !important;
+    margin-left: 27px;
   }
-  .slick-slide .slick-active {
-    margin-right: 30px;
-  }
+  /* .slick-slide .slick-active {
+    
+  } */
   .slick-track {
     margin-left: -50px;
   }

@@ -46,7 +46,7 @@ export const globalTheme = createTheme({
   },
   typography: {
     h1: {
-      fontSize: "3rem",
+      fontSize: "3.5rem",
       fontWeight: "bold",
       color: colors.swamp,
       fontFamily: fontFamily.Oxygen,
