@@ -114,6 +114,7 @@ export const globalTheme = createTheme({
         },
       },
     },
+
     MuiButton: {
       styleOverrides: {
         // Name of the slot

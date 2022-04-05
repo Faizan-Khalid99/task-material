@@ -171,7 +171,7 @@ const TrackRecord = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {movies?.movies.data.map(
+                {movies?.movies?.data?.map(
                   ({ episode_id, title, release_date, director }, index) => (
                     <TableRow key={episode_id}>
                       <TableCell align="center">
