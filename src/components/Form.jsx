@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   List,
   ListItem,
@@ -21,10 +21,11 @@ const Form = () => {
     data = dispatch(apiServiceWorker());
     console.log(data);
   }, []);
+  let nameInput;
+  let emailInput;
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [isEditMode, setIsEditMode] = useState(false);
 
   return (
     <Box data-aos="fade-up" data-aos-duration="1200" component="div" my={20}>
@@ -51,14 +52,20 @@ const Form = () => {
             <Input
               placeholder="Enter Name"
               onChange={(e) => setName(e.target.value)}
-              color="warning"
+              color="secondary"
               mb={10}
+              inputRef={(node) => {
+                nameInput = node;
+              }}
             />{" "}
             <Input
               placeholder="Enter Email"
-              color="success"
+              color="secondary"
               onChange={(e) => setEmail(e.target.value)}
               mb={10}
+              inputRef={(node) => {
+                emailInput = node;
+              }}
             />
             <Button
               sx={{ marginTop: "10px", marginLeft: " 10px" }}
@@ -66,7 +73,11 @@ const Form = () => {
               onClick={() => {
                 if (name && email) {
                   dispatch(addUser({ name, email }));
+                  setName("");
+                  setEmail("");
                 }
+                nameInput.value = "";
+                emailInput.value = "";
               }}
             >
               Add user
