@@ -40,7 +40,7 @@ const ComponentStyle = makeStyles({
   },
   tutorialStyle: {
     fontSize: "12px",
-    fontWeight: "700",
+
     lineHeight: "15px",
   },
   mobileMenu: {

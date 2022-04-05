@@ -70,7 +70,7 @@ export const globalTheme = createTheme({
       color: colors.swamp,
       marginRight: "15px",
       margin: "auto",
-      fontWeight: " 700 bolder",
+      fontWeight: 700,
       fontFamily: fontFamily.Oxygen,
     },
     h5: {

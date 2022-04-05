@@ -8,7 +8,7 @@ import {
   Box,
   Button,
   Grid,
-  useMediaQuery,
+  Typography,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { apiServiceWorker } from "../toolkit-store/apiServiceWorker";
@@ -24,12 +24,30 @@ const Form = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [isEditMode, setIsEditMode] = useState(false);
 
   return (
     <Box data-aos="fade-up" data-aos-duration="1200" component="div" my={20}>
-      <Container fixed maxWidth="md">
+      <Container fixed maxWidth="lg">
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "50px",
+          }}
+        >
+          <Typography variant="h1" component="h4" color="secondary">
+            Users
+          </Typography>
+        </Box>
         <Grid container spacing={3}>
-          <Grid item lg={12} md={12} sm={6}>
+          <Grid
+            item
+            lg={12}
+            md={12}
+            sm={6}
+            sx={{ display: "flex", justifyContent: "space-evenly" }}
+          >
             <Input
               placeholder="Enter Name"
               onChange={(e) => setName(e.target.value)}
@@ -45,7 +63,11 @@ const Form = () => {
             <Button
               sx={{ marginTop: "10px", marginLeft: " 10px" }}
               variant="contained"
-              onClick={() => dispatch(addUser({ name, email }))}
+              onClick={() => {
+                if (name && email) {
+                  dispatch(addUser({ name, email }));
+                }
+              }}
             >
               Add user
             </Button>
@@ -64,6 +86,7 @@ const Form = () => {
                       }}
                     />
                     <Button
+                      sx={{ marginLeft: "10px" }}
                       variant="contained"
                       onClick={() => dispatch(removeUser(index))}
                     >
