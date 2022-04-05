@@ -14,7 +14,7 @@ import Form from "./components/Form";
 // import DataState from "./components/DataState";
 
 AOS.init({
-  once: false,
+  once: true,
 });
 
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
         <HeaderBar />
         <Hero />
         <PortfolioSection />
-        <TrackRecord />
+        {/* <TrackRecord /> */}
         <Form />
         <SlickSliderSection />
         <JoinSection />

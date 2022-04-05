@@ -97,7 +97,7 @@ const footerStyles = makeStyles((theme) => ({
 const Footer = () => {
   const classes = footerStyles();
   return (
-    <Box data-aos="fade-up" data-aos-duration="1200" className={classes.footer}>
+    <Box className={classes.footer}>
       <Container fixed>
         <Grid container spacing={3} justifyContent="center">
           <Grid item lg={3} md={2} sm={12} xs={12}>
