@@ -68,7 +68,7 @@ const SlickSliderSection = () => {
           <Grid item md={12}>
             <Box>
               <Sliders className="slick-section" {...settings}>
-                <Box>
+                <Box component="div">
                   <Typography pb="13px" variant="h1" component="h2">
                     Learn & Have Fun
                   </Typography>
@@ -80,22 +80,22 @@ const SlickSliderSection = () => {
                   </Typography>
                   <img className="laptop-img" src={Laptop} alt="" />
                 </Box>
-                <Box mr={1}>
-                  <Typography pb="13px" variant="h1">
+                <Box component="div" mr={1}>
+                  <Typography pb="13px" variant="h1" component="h2">
                     Invest & Profit
                   </Typography>
-                  <Typography variant="para">
+                  <Typography variant="para" component="p">
                     When we're sure you have understood a project well enough to
                     become an ambassador, you get to invest in it before it gets
                     listed on exchanges!
                   </Typography>
                   <img className="laptop-img" src={Laptop} alt="" />
                 </Box>
-                <Box mr={1}>
-                  <Typography pb="13px" variant="h1">
+                <Box component="div" mr={1}>
+                  <Typography pb="13px" variant="h1" component="h2">
                     Live On
                   </Typography>
-                  <Typography variant="para">
+                  <Typography variant="para" component="p">
                     You are highly encouraged to educate others about the
                     projects you discovered on the LearnPad.
                   </Typography>

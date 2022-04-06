@@ -18,6 +18,13 @@ export const userSlice = createSlice({
         (user, index) => index !== action.payload
       );
     },
+    updateUsername: (state, action) => {
+      state.value.map((user, index) => {
+        if (index === action.payload.index) {
+          user.name = action.payload.newUserName;
+        }
+      });
+    },
   },
   extraReducers: {
     [apiServiceWorker.pending]: (state, action) => {
@@ -33,6 +40,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { addUser, removeUser } = userSlice.actions;
+export const { addUser, removeUser, updateUsername } = userSlice.actions;
 
 export default userSlice.reducer;

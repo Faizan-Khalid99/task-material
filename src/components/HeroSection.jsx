@@ -23,6 +23,9 @@ const HeroComponentStyles = makeStyles((theme) => ({
         // paddingLeft: "0px",
         paddingTop: "32px",
       },
+      [theme.breakpoints.down("sm")]: {
+        paddingLeft: 0,
+      },
     },
   },
   intro: {
@@ -51,6 +54,11 @@ const HeroComponentStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       maxWidth: "535px",
       height: "auto",
+    },
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "335px",
+      height: "auto",
+      marginLeft: "-10px",
     },
   },
 }));

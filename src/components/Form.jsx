@@ -9,32 +9,45 @@ import {
   Button,
   Grid,
   Typography,
+  createTheme,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { apiServiceWorker } from "../toolkit-store/apiServiceWorker";
-import { addUser, removeUser } from "../toolkit-store/Features/UserSlice";
+import {
+  addUser,
+  removeUser,
+  updateUsername,
+} from "../toolkit-store/Features/UserSlice";
 
 const Form = () => {
   const dispatch = useDispatch();
   let data = useSelector((state) => state.user.value);
+  const theme = createTheme();
   useEffect(() => {
     data = dispatch(apiServiceWorker());
     console.log(data);
   }, []);
-  let nameInput;
-  let emailInput;
+
+  const nameInput = useRef();
+  const emailInput = useRef();
+  const updateNameInput = useRef();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [newUserName, setNewUserName] = useState("");
 
   return (
     <Box data-aos="fade-up" data-aos-duration="1200" component="div" my={20}>
       <Container fixed maxWidth="lg">
         <Box
+          component="div"
           sx={{
             display: "flex",
             justifyContent: "center",
             marginBottom: "50px",
+            [theme.breakpoints.down("md")]: {
+              display: "block",
+            },
           }}
         >
           <Typography variant="h1" component="h4" color="secondary">
@@ -54,36 +67,33 @@ const Form = () => {
               onChange={(e) => setName(e.target.value)}
               color="secondary"
               mb={10}
-              inputRef={(node) => {
-                nameInput = node;
-              }}
+              inputRef={nameInput}
             />{" "}
             <Input
               placeholder="Enter Email"
               color="secondary"
               onChange={(e) => setEmail(e.target.value)}
               mb={10}
-              inputRef={(node) => {
-                emailInput = node;
-              }}
+              inputRef={emailInput}
             />
             <Button
               sx={{ marginTop: "10px", marginLeft: " 10px" }}
               variant="contained"
+              size="large"
               onClick={() => {
                 if (name && email) {
                   dispatch(addUser({ name, email }));
                   setName("");
                   setEmail("");
+                  nameInput.current.value = "";
+                  emailInput.current.value = "";
                 }
-                nameInput.value = "";
-                emailInput.value = "";
               }}
             >
               Add user
             </Button>
           </Grid>
-          <Grid item lg={12} md={12} sm={6}>
+          <Grid item lg={12} md={6} sm={6}>
             <List>
               {data.map((item, index) => {
                 return (
@@ -96,6 +106,29 @@ const Form = () => {
                         fontWeight: "bold",
                       }}
                     />
+                    <Input
+                      placeholder="Update UserName"
+                      color="secondary"
+                      sx={{ marginRight: "10px" }}
+                      onChange={(e) => {
+                        setNewUserName(e.target.value);
+                      }}
+                      inputRef={updateNameInput}
+                    />
+
+                    <Button
+                      variant="contained"
+                      onClick={() => {
+                        if (newUserName) {
+                          dispatch(updateUsername({ newUserName, index }));
+                          setNewUserName("");
+                          updateNameInput.current.value = "";
+                        }
+                      }}
+                    >
+                      Update Username
+                    </Button>
+
                     <Button
                       sx={{ marginLeft: "10px" }}
                       variant="contained"

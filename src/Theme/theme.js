@@ -1,8 +1,9 @@
-import { createTheme, Grid } from "@mui/material";
+import { createTheme } from "@mui/material";
 import "../Fonts/Oxygen-Regular.ttf";
 import "../Fonts/Oxygen-Bold.ttf";
 
 const defaultTheme = createTheme();
+
 export const colors = {
   aliceBlue: "#ECF0F3",
   hawkersBlue: "#C6D7EB",
@@ -50,6 +51,10 @@ export const globalTheme = createTheme({
       fontWeight: "bold",
       color: colors.swamp,
       fontFamily: fontFamily.Oxygen,
+      [defaultTheme.breakpoints.down("sm")]: {
+        fontSize: "2.5rem",
+        lineHeight: "2.25rem",
+      },
     },
     h2: {
       fontSize: "2rem",
