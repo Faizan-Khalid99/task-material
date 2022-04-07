@@ -2,19 +2,14 @@ import React from "react";
 import {
   Box,
   Typography,
-  Button,
   Grid,
   Container,
   Link,
   TextField,
-  SvgIcon,
   InputAdornment,
-  Stack,
   List,
   ListItem,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import { colors, fontFamily } from "../Theme/theme";
 import { ReactComponent as FooterLogo } from "../images/footerLogo.svg";
 import TiktokIcon from "../images/tiktok-icon.png";
 import FacebookIcon from "../images/facebook-icon.png";
@@ -26,74 +21,7 @@ import { ReactComponent as Arrow } from "../images/arrow.svg";
 import InstagramIcon from "../images/instagram-icon.png";
 import TwitterIcon from "../images/twitter-icon.png";
 import TelegramIcon from "../images/telegram.png";
-const footerStyles = makeStyles((theme) => ({
-  footer: {
-    backgroundColor: "#163D53",
-    border: "0.1px solid #11302D",
-    justifyContent: "space-around",
-    height: "330px",
-    [theme.breakpoints.down("lg")]: {
-      height: "auto",
-    },
-  },
-  footerLogo: {
-    width: "148.06px",
-    height: "50px",
-    paddingTop: "10px",
-    marginTop: 10,
-  },
-  footerHeading: {
-    color: colors.white,
-    fontFamily: fontFamily.Oxygen,
-    textTransform: "capitalize",
-    fontWeight: 700,
-    paddingBottom: "16px",
-    textAlign: "left",
-    "& p": {
-      fontSize: "16px",
-      lineHeight: "20.2px",
-    },
-  },
-  footerSubHeading: {
-    color: colors.white,
-    fontFamily: fontFamily.Oxygen,
-    textTransform: "capitalize",
-    fontWeight: 400,
-    fontSize: "12px",
-    lineHeight: "15px",
-    opacity: 0.7,
-    paddingTop: "12px",
-  },
-  footerGridStyle: {
-    display: "flex",
-    justifyContent: "space-around",
-    paddingLeft: "0px",
-    "&.MuiGrid-item": {
-      root: {
-        paddingLeft: "0px",
-      },
-    },
-  },
-  footerIcons: {
-    maxWidth: "243px",
-    height: "16px",
-  },
-  footerIconStyle: {
-    display: "flex",
-    alignItems: "center",
-    marginRight: "50px",
-  },
-  footerLine: {
-    marginTop: "36px",
-    border: "1px solid #FFFFFF",
-    opacity: 0.1,
-  },
-  footerBrand: {
-    display: "flex",
-    justifyContent: "center",
-    marginTop: "20px",
-  },
-}));
+import { footerStyles } from "./Styles/footerStyles";
 const Footer = () => {
   const classes = footerStyles();
   return (
@@ -180,52 +108,52 @@ const Footer = () => {
               <List className={classes.footerIconStyle}>
                 <ListItem>
                   <Link href="/">
-                    <img src={TelegramIcon} />
+                    <img src={TelegramIcon} alt="Telegram" />
                   </Link>
                 </ListItem>
                 <ListItem>
                   <Link href="/">
-                    <img src={TwitterIcon} />
+                    <img src={TwitterIcon} alt="Twitter" />
                   </Link>
                 </ListItem>
                 <ListItem>
                   <Link href="/">
-                    <img src={M_Icon} />
-                  </Link>
-                </ListItem>
-                <ListItem>
-                  <Link href="/">
-                    {" "}
-                    <img src={YtIcon} />
+                    <img src={M_Icon} alt="M" />
                   </Link>
                 </ListItem>
                 <ListItem>
                   <Link href="/">
                     {" "}
-                    <img src={DiscordIcon} />
+                    <img src={YtIcon} alt="Youtube" />
                   </Link>
                 </ListItem>
                 <ListItem>
                   <Link href="/">
                     {" "}
-                    <img src={InstagramIcon} />
-                  </Link>
-                </ListItem>
-                <ListItem>
-                  <Link href="/">
-                    <img src={LinkedIcon} />
+                    <img src={DiscordIcon} alt="Discord" />
                   </Link>
                 </ListItem>
                 <ListItem>
                   <Link href="/">
                     {" "}
-                    <img src={FacebookIcon} />
+                    <img src={InstagramIcon} alt="Instagram" />
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link href="/">
+                    <img src={LinkedIcon} alt="LinkedIn" />
                   </Link>
                 </ListItem>
                 <ListItem>
                   <Link href="/">
                     {" "}
-                    <img src={TiktokIcon} />
+                    <img src={FacebookIcon} alt="Facebook" />
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link href="/">
+                    {" "}
+                    <img src={TiktokIcon} alt="Tiktok" />
                   </Link>
                 </ListItem>
               </List>

@@ -1,67 +1,7 @@
 import React from "react";
-import {
-  Box,
-  Grid,
-  Typography,
-  Container,
-  Button,
-  createTheme,
-} from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { Box, Grid, Typography, Container, Button } from "@mui/material";
 import { ReactComponent as Hero } from "../images/hero.svg";
-
-const HeroComponentStyles = makeStyles((theme) => ({
-  gridStyle: {
-    borderBottom: "0.1px solid #E3E6EC",
-    paddingBottom: "20px",
-    paddingLeft: "29px",
-    paddingRight: "20px",
-    paddingTop: "42.69px",
-    borderBottomWidth: "0.1px",
-    "& .MuiGrid-root .MuiGrid-item": {
-      [theme.breakpoints.down("md")]: {
-        // paddingLeft: "0px",
-        paddingTop: "32px",
-      },
-      [theme.breakpoints.down("sm")]: {
-        paddingLeft: 0,
-      },
-    },
-  },
-  intro: {
-    marginTop: "50px",
-  },
-  introText: {
-    paddingTop: "100px",
-  },
-  para: {
-    fontWeight: 700,
-  },
-  subText: {
-    marginTop: "20px",
-  },
-  getStarted: {
-    paddingTop: "40px",
-  },
-  getStartedButton: {
-    width: "179px",
-    borderRadius: "78px",
-    height: "48px",
-  },
-  HeroStyle: {
-    maxWidth: "100%",
-    height: "auto",
-    [theme.breakpoints.down("md")]: {
-      maxWidth: "535px",
-      height: "auto",
-    },
-    [theme.breakpoints.down("sm")]: {
-      maxWidth: "335px",
-      height: "auto",
-      marginLeft: "-10px",
-    },
-  },
-}));
+import { HeroComponentStyles } from "./Styles/HeroComponentStyles";
 
 const HeroSection = () => {
   const classes = HeroComponentStyles();

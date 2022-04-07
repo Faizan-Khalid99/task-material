@@ -1,25 +1,12 @@
 import React, { useRef } from "react";
 import { Box, Grid, Typography, Container } from "@mui/material";
-import UpArrow from "../images/UpArrow.png";
-import { makeStyles } from "@mui/styles";
+// import UpArrow from "../images/UpArrow.png";
 import Sliders from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./slider.css";
 import Laptop from "../images/Laptop.svg";
-const useStyles = makeStyles((theme) => ({
-  root: {
-    background: "#EEF9F7",
-    height: "618px",
-    [theme.breakpoints.down("md")]: {
-      height: "481px",
-    },
-    [theme.breakpoints.down("lg")]: {
-      height: "618px",
-    },
-  },
-}));
-
+import { useStyles } from "./Styles/SlickSliderStyles";
 const SlickSliderSection = () => {
   const classes = useStyles();
   const text = useRef();

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from "react";
+import React from "react";
 import { Button, Container, Typography, Box, IconButton } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -7,80 +7,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { colors, fontFamily } from "../Theme/theme";
-import { makeStyles } from "@mui/styles";
+import { colors } from "../Theme/theme";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { bindActionCreators } from "redux";
 import { useSelector, useDispatch } from "react-redux";
 import { ActionCreators } from "../store/actions";
+import { useStyles } from "./Styles/TrackRecordStyles";
 
-// import DataContext from "../context-api/DataContext";
-const useStyles = makeStyles((theme) => ({
-  heading: {
-    fontSize: "56px",
-    lineHeight: "112.27%",
-    marginTop: "40px",
-  },
-  trackRecordSection: {
-    backgroundColor: "#E8EFF7",
-    backgroundSize: "contain",
-    height: "790px",
-    [theme.breakpoints.down("md")]: {
-      height: "auto",
-      paddingBottom: "30px",
-    },
-  },
-  TrackRecordHeader: {
-    display: "flex",
-    justifyContent: "center",
-    marginTop: "100px",
-  },
-  TableHeader: {
-    fontWeight: "bold",
-    opacity: "80%",
-    fontSize: "24px",
-    lineHeight: "36px",
-    paddingLeft: "30px",
-    color: colors.swamp,
-  },
-  TableHeaderColor: {
-    backgroundColor: colors.white,
-  },
-  TrackTable: {
-    display: "flex",
-    justifyContent: "center",
-  },
-
-  tableColumn: {
-    display: "flex",
-    justifyContent: "center",
-  },
-  tableDates: {
-    "& p": {
-      color: "#415957",
-      opacity: 0.7,
-      fontSize: "15px",
-      fontWeight: 400,
-      lineHeight: "112.27%",
-    },
-  },
-  prices: {
-    fontWeight: "bold",
-    color: colors.swamp,
-    fontSize: "30px",
-    lineHeight: "112.27%",
-    fontFamily: fontFamily.Oxygen,
-  },
-  ButtonPos: {
-    display: "flex",
-    justifyContent: "center",
-    marginTop: "50px",
-  },
-  ButtonStyle: {
-    width: "220px",
-    height: "48px",
-  },
-}));
 const TrackRecord = () => {
   const classes = useStyles();
   // const { data, showData, deleteMovie } = useContext(DataContext);
@@ -92,9 +25,9 @@ const TrackRecord = () => {
   const movies = useSelector((movies) => movies);
   // console.log(movies.movies.data);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   return (
     <Box
