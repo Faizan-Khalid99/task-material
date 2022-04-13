@@ -44,7 +44,7 @@ const HeaderBar = () => {
     return (
       <Box>
         <AppBar color="transparent" position="fixed">
-          <Container fixed maxWidth="lg">
+          <Container fixed disableGutters maxWidth="lg">
             <Toolbar>
               <Box mr={2.5}>
                 <IconButton onClick={toggleDrawer(true)}>
@@ -77,7 +77,7 @@ const HeaderBar = () => {
   const DesktopView = () => {
     return (
       <AppBar color="transparent" position="fixed">
-        <Container fixed>
+        <Container fixed disableGutters>
           <Toolbar>
             <Box sx={{ flexGrow: 1 }} className={classes.headerLogoStyle}>
               <Link href="/">

@@ -13,7 +13,7 @@ const HeroSection = () => {
     >
       <Container fixed>
         <Grid container spacing={0} alignItems="center">
-          <Grid item lg={6} md={6} xs={12} pl="42px">
+          <Grid item lg={6} md={6} xs={12}>
             <Typography variant="h1" className={classes.introText}>
               Make money <br />
               <Typography variant="h1" color="secondary" component="span">

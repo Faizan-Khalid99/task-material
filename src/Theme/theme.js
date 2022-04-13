@@ -236,6 +236,7 @@ export const globalTheme = createTheme({
           borderBottomWidth: "0.1px",
           marginY: "5px",
           backgroundColor: colors.white,
+          boxShadow: "none",
         },
       },
     },
@@ -488,22 +489,6 @@ export const globalTheme = createTheme({
       styleOverrides: {
         root: {
           color: colors.loss,
-        },
-      },
-    },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          elevation: 0,
-        },
-      },
-    },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          "&.MuiPaper-elevation": {
-            boxShadow: "none",
-          },
         },
       },
     },
